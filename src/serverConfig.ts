@@ -1,4 +1,8 @@
 export const SERVER_BASE_URL =
-  "http://localhost:4000/api" || `https://toptrips.herokuapp.com/api`;
+  process.env.NODE_ENV === "production"
+    ? `https://toptrips.herokuapp.com/api`
+    : "http://localhost:4000/api";
 export const SERVER_SOCKET_URL =
-  `ws://localhost:4000` || `wss://toptrips.herokuapp.com/`;
+  process.env.NODE_ENV === "production"
+    ? `wss://toptrips.herokuapp.com/`
+    : `ws://localhost:4000`;
